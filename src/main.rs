@@ -22,7 +22,7 @@ async fn main() {
     send(&args, &user).await.expect("Cannot send message.");
 }
 
-async fn send<'a>(args: &'a Args, user: &'a User) -> OwnedDeliveryResult {
+async fn send(args: &Args, user: &User) -> OwnedDeliveryResult {
     let producer: &FutureProducer = &ClientConfig::new()
         .set("bootstrap.servers", &args.broker)
         .create()
