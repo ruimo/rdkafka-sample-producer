@@ -23,7 +23,7 @@ async fn main() {
 }
 
 async fn send<'a>(args: &'a Args, user: &'a User) -> OwnedDeliveryResult {
-    let producer: &FutureProducer = &ClientConfig::new()
+    let producer: FutureProducer = ClientConfig::new()
         .set("bootstrap.servers", &args.broker)
         .create()
         .expect("Producer creation error");
